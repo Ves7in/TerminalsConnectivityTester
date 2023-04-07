@@ -3,7 +3,7 @@
 
 Network connectivity test tool for a large number of terminals🛠.
 
-![preview-v0.2.3](https://user-images.githubusercontent.com/31813146/230642625-a407cb23-1268-472e-9b74-e6ad1472a025.png)
+![preview-v0 2 3](https://user-images.githubusercontent.com/31813146/230643284-e1e657aa-beb0-40b4-aad1-e6b110aa3cd4.png)
 
 ## 🗝简介 - Brief
 当内网中包含大量网络设备，个别不常用的终端连接异常时很难及时被发现，应避免需要使用时才处理异常。
