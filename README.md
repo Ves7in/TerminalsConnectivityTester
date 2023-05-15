@@ -20,7 +20,7 @@ Network connectivity test tool for a large number of terminals🛠.
 7. 所有设置通过 config.yaml 更改，请保证此配置文件位于软件同目录，不可更名。
 
 ## ⚙️使用说明 - Usage
-#### 配置文件说明
+### 1. 配置文件说明
 _**注意缩进且冒号后有一个空格**_
 
 ```yaml
@@ -81,33 +81,42 @@ dumpcodes:
 ```
 此项定义了所有设备类型（键）及其SQL查询语句（值），查询结果的列名（或别名）需与上一项设置的列ID对应。
 
-#### 主程序使用说明
-菜单项：
+### 2. 主程序使用说明
+#### (i) 菜单项：
 ```
 File                      #   [文件操作]
   ┣ Open ...              # 打开此程序保存的 .json 记录文件
-  ┣ Save                  # 
-  ┣ Save as ...           # 
-  ┣ Import ...            # 
-  ┣ Export ...            # 
-  ┗ Quit                  # 
-Filter                    #   [过滤器]
-  ┣ Normal                # 
-  ┣ Timeout               # 
-  ┣ Unknown               # 
-  ┗ Untested              # 
+  ┣ Save                  # 以 .json 记录形式保存当前列表内容
+  ┣ Save as ...           # 以 .json 记录形式另存为当前列表内容
+  ┣ Import ...            # 导入此程序导出的 .csv 记录文件
+  ┣ Export ...            # 以 .csv 记录形式导出当前列表内容
+  ┗ Quit                  # 退出此程序
+Filter                    #   [过滤器]（默认不筛选，点击以下任一项切换筛选状态）
+  ┣ Normal                # 测试通过项
+  ┣ Timeout               # 测试超时项
+  ┣ Unknown               # 测试未成功项（检查IP是否有误）
+  ┗ Untested              # 未测试项
 Database                  #   [数据库操作]
-  ┣ Dump (Config file)    # 
-  ┣ Dump from localhost   # 
-  ┗ Dump from remote ...  # 
+  ┣ Dump (Config file)    # 从配置文件设定的数据库主机下载数据
+  ┣ Dump from localhost   # 从本地数据库下载数据
+  ┗ Dump from remote ...  # 从指定数据库下载数据
 ConnectivityTest          #   [测试程序]
-  ┣ Run (Performance)     # 
-  ┗ Run                   # 
+  ┣ Run (Performance)     # 高速模式
+  ┗ Run                   # 低速模式
 About                     #   [关于此程序]
   ┗ TerminalsConnectivityTester
 ```
 
-主程序基本使用流程：
+#### (2) 主程序一般使用流程：
+* 从数据库下载数据并测试：
+  * Database > Dump (Config file)，等待数据下载完成；
+  * ConnectivityTest > Run (Performance)，运行测试并等待测试完成；
+  * Filter > xxx，筛选掉不需要的项。
+
+* 从保存的 .json 记录加载数据并测试：
+  * File > Open ...，等待数据加载完成；
+  * ConnectivityTest > Run (Performance)，运行测试并等待测试完成；
+  * Filter > xxx，筛选掉不需要的项。
 
 ## 📙更新日志 - Update logs
 #### 2023/04/07 - v0.2.3(1)
