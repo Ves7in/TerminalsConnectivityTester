@@ -83,7 +83,7 @@ dumpcodes:
 
 ### 2. 主程序使用说明
 #### (i) 菜单项：
-```
+```bash
 File                      #   [文件操作]
   ┣ Open ...              # 打开此程序保存的 .json 记录文件
   ┣ Save                  # 以 .json 记录形式保存当前列表内容
@@ -96,18 +96,18 @@ Filter                    #   [过滤器]（默认不筛选，点击以下任一
   ┣ Timeout               # 测试超时项
   ┣ Unknown               # 测试未成功项（检查IP是否有误）
   ┗ Untested              # 未测试项
-Database                  #   [数据库操作]
+Database                  #   [数据库下载数据]
   ┣ Dump (Config file)    # 从配置文件设定的数据库主机下载数据
   ┣ Dump from localhost   # 从本地数据库下载数据
   ┗ Dump from remote ...  # 从指定数据库下载数据
-ConnectivityTest          #   [测试程序]
+ConnectivityTest          #   [启动测试]
   ┣ Run (Performance)     # 高速模式
   ┗ Run                   # 低速模式
 About                     #   [关于此程序]
   ┗ TerminalsConnectivityTester
 ```
 
-#### (2) 主程序一般使用流程：
+#### (ii) 主程序一般使用流程：
 * 从数据库下载数据并测试：
   * Database > Dump (Config file)，等待数据下载完成；
   * ConnectivityTest > Run (Performance)，运行测试并等待测试完成；
@@ -115,6 +115,11 @@ About                     #   [关于此程序]
 
 * 从保存的 .json 记录加载数据并测试：
   * File > Open ...，等待数据加载完成；
+  * ConnectivityTest > Run (Performance)，运行测试并等待测试完成；
+  * Filter > xxx，筛选掉不需要的项。
+
+* 从导出的 .csv 记录导入数据并测试：
+  * File > Import ...，等待数据导入完成；
   * ConnectivityTest > Run (Performance)，运行测试并等待测试完成；
   * Filter > xxx，筛选掉不需要的项。
 
